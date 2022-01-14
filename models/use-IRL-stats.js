@@ -8,7 +8,7 @@ var out = [];
 
 for (
   t1 = t0;
-  date_fns.isBefore(t1, new Date(2021, 10, 13));
+  date_fns.isBefore(t1, new Date(2022, 0, 12));
   t1 = date_fns.addDays(t1, 1)
 )
   out.push({
