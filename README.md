@@ -1,5 +1,7 @@
 # some covid modelling
 
+⚠️ **This model is not validated and the output (e.g. [./models/use-IRL-stats.csv](./models/use-IRL-stats.csv)) is showing curious discontinuities which are not expected.**
+
 ## data
 
 Data source is [Our World in Data](https://ourworldindata.org/).
