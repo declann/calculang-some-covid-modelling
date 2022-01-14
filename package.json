@@ -1,0 +1,25 @@
+{
+  "name": "calculang-some-covid-modelling",
+  "version": "0.1.0-alpha.1",
+  "license": "MIT",
+  "private": true,
+  "description": "just stats",
+  "repository": "https://github.com/declann/calculang-some-covid-modelling.git",
+  "author": "Declan Naughton working for DCN Consulting",
+  "scripts": {
+    "build": "cul-js compile ./models/irl-pt-factor.cul.js",
+    "run": "node ./models/use-irl-pt-factor.js > ./models/use-irl-pt-factor.json"
+  },
+  "dependencies": {
+    "date-fns": "^2.25.0",
+    "lru-memoize": "^1.1.0",
+    "raw-loader": "^4.0.2",
+    "underscore": "^1.13.1",
+    "d3-dsv": "^3.0.1"
+  },
+  "devDependencies": {
+    "date-fns": "^2.25.0",
+    "neat-csv": "^7.0.0",
+    "@calculang/calculang-js": "file:../../../../programming/PROJECTS/github/DECLANN/calculang/packages/calculang-js"
+  }
+}
