@@ -7,8 +7,10 @@
   "repository": "https://github.com/declann/calculang-some-covid-modelling.git",
   "author": "Declan Naughton working for DCN Consulting",
   "scripts": {
-    "build": "cul-js compile ./models/irl-pt-factor.cul.js",
-    "run": "node ./models/use-irl-pt-factor.js > ./models/use-irl-pt-factor.json"
+    "build:IRL-PT-factor": "cul-js compile ./models/IRL-PT-factor.cul.js",
+    "run:IRL-PT-factor": "node ./models/use-IRL-PT-factor.js > ./models/use-IRL-PT-factor.json",
+    "build:IRL-stuff": "cul-js compile ./models/IRL-stuff.cul.js",
+    "run:IRL-stuff": "node ./models/use-IRL-stuff.js > ./models/use-IRL-stuff.json"
   },
   "dependencies": {
     "date-fns": "^2.25.0",
