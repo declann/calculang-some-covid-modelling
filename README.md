@@ -4,7 +4,7 @@
 
 Data source is [Our World in Data](https://ourworldindata.org/).
 
-I use [Flat Data](https://next.github.com/projects/flat-data) to bring down updated data each day. I'm only bringing down a little bit!
+I use [Flat Data](https://next.github.com/projects/flat-data) to bring down updated data each day (correction: not yet). I'm only bringing down a little bit!
 
 ## models
 
