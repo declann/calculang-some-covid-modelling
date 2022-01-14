@@ -9,8 +9,8 @@
   "scripts": {
     "build:IRL-PT-factor": "cul-js compile ./models/IRL-PT-factor.cul.js",
     "run:IRL-PT-factor": "node ./models/use-IRL-PT-factor.js > ./models/use-IRL-PT-factor.json",
-    "build:IRL-stuff": "cul-js compile ./models/IRL-stuff.cul.js",
-    "run:IRL-stuff": "node ./models/use-IRL-stuff.js > ./models/use-IRL-stuff.json"
+    "build:IRL-stats": "cul-js compile ./models/IRL-stats.cul.js",
+    "run:IRL-stats": "node ./models/use-IRL-stats.js > ./models/use-IRL-stats.json"
   },
   "dependencies": {
     "date-fns": "^2.25.0",
