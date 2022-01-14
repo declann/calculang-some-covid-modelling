@@ -10,7 +10,7 @@
     "build:IRL-PT-factor": "cul-js compile ./models/IRL-PT-factor.cul.js",
     "run:IRL-PT-factor": "node ./models/use-IRL-PT-factor.js > ./models/use-IRL-PT-factor.json",
     "build:IRL-stats": "cul-js compile ./models/IRL-stats.cul.js",
-    "run:IRL-stats": "node ./models/use-IRL-stats.js > ./models/use-IRL-stats.json"
+    "run:IRL-stats": "node ./models/use-IRL-stats.js > ./models/use-IRL-stats.csv"
   },
   "dependencies": {
     "date-fns": "^2.25.0",

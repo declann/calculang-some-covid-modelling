@@ -1,0 +1,178 @@
+{
+  "cul_functions": {
+    "0_new_cases_smoothed": {
+      "cul_scope_id": 0,
+      "name": "new_cases_smoothed",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "inputs": [
+        "t_in"
+      ]
+    },
+    "0_new_deaths_smoothed": {
+      "cul_scope_id": 0,
+      "name": "new_deaths_smoothed",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "inputs": [
+        "t_in"
+      ]
+    },
+    "0_new_cases": {
+      "cul_scope_id": 0,
+      "name": "new_cases",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "inputs": [
+        "t_in"
+      ]
+    },
+    "0_new_deaths": {
+      "cul_scope_id": 0,
+      "name": "new_deaths",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "inputs": [
+        "t_in"
+      ]
+    },
+    "0_cases_deaths_link_smoothed": {
+      "cul_scope_id": 0,
+      "name": "cases_deaths_link_smoothed",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "inputs": [
+        "t_in"
+      ]
+    },
+    "0_cases_deaths_link": {
+      "cul_scope_id": 0,
+      "name": "cases_deaths_link",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "inputs": [
+        "t_in"
+      ]
+    },
+    "0_t": {
+      "cul_scope_id": 0,
+      "name": "t",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "inputs": [
+        "t_in"
+      ]
+    },
+    "0_t_in": {
+      "cul_scope_id": 0,
+      "name": "t_in",
+      "cul_source_scope_id": 0,
+      "reason": "input definition",
+      "inputs": [
+        "t_in"
+      ]
+    }
+  },
+  "cul_links": [
+    {
+      "to": "0_new_cases_smoothed",
+      "from": "0_t",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_new_deaths_smoothed",
+      "from": "0_t",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_new_cases",
+      "from": "0_t",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_new_deaths",
+      "from": "0_t",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_cases_deaths_link_smoothed",
+      "from": "0_new_cases_smoothed",
+      "reason": "call",
+      "negs": [
+        "t_in"
+      ]
+    },
+    {
+      "to": "0_cases_deaths_link_smoothed",
+      "from": "0_t",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_cases_deaths_link_smoothed",
+      "from": "0_new_deaths_smoothed",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_cases_deaths_link",
+      "from": "0_new_cases",
+      "reason": "call",
+      "negs": [
+        "t_in"
+      ]
+    },
+    {
+      "to": "0_cases_deaths_link",
+      "from": "0_t",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_cases_deaths_link",
+      "from": "0_new_deaths",
+      "reason": "call",
+      "negs": []
+    },
+    {
+      "to": "0_t",
+      "from": "0_t_in",
+      "reason": "input"
+    }
+  ],
+  "cul_scope_ids_to_resource": {
+    "0": "./IRL-stats.cul.js"
+  },
+  "import_sources_to_resource": {},
+  "cul_input_map": {
+    "0_new_cases_smoothed": [
+      "t_in"
+    ],
+    "0_new_deaths_smoothed": [
+      "t_in"
+    ],
+    "0_new_cases": [
+      "t_in"
+    ],
+    "0_new_deaths": [
+      "t_in"
+    ],
+    "0_cases_deaths_link_smoothed": [
+      "t_in"
+    ],
+    "0_cases_deaths_link": [
+      "t_in"
+    ],
+    "0_t": [
+      "t_in"
+    ],
+    "0_t_in": [
+      "t_in"
+    ]
+  },
+  "dot": "digraph {\n  \"0_new_cases_smoothed\" [cul_scope_id=0,name=new_cases_smoothed,cul_source_scope_id=0,reason=definition,inputs=t_in,label=\"0_new_cases_smoothed inputs: t_in\"]\n  \"0_new_deaths_smoothed\" [cul_scope_id=0,name=new_deaths_smoothed,cul_source_scope_id=0,reason=definition,inputs=t_in,label=\"0_new_deaths_smoothed inputs: t_in\"]\n  \"0_new_cases\" [cul_scope_id=0,name=new_cases,cul_source_scope_id=0,reason=definition,inputs=t_in,label=\"0_new_cases inputs: t_in\"]\n  \"0_new_deaths\" [cul_scope_id=0,name=new_deaths,cul_source_scope_id=0,reason=definition,inputs=t_in,label=\"0_new_deaths inputs: t_in\"]\n  \"0_cases_deaths_link_smoothed\" [cul_scope_id=0,name=cases_deaths_link_smoothed,cul_source_scope_id=0,reason=definition,inputs=t_in,label=\"0_cases_deaths_link_smoothed inputs: t_in\"]\n  \"0_cases_deaths_link\" [cul_scope_id=0,name=cases_deaths_link,cul_source_scope_id=0,reason=definition,inputs=t_in,label=\"0_cases_deaths_link inputs: t_in\"]\n  \"0_t\" [cul_scope_id=0,name=t,cul_source_scope_id=0,reason=definition,inputs=t_in,label=\"0_t inputs: t_in\"]\n  \"0_t_in\" [cul_scope_id=0,name=t_in,cul_source_scope_id=0,reason=\"input definition\",inputs=t_in,label=\"0_t_in inputs: t_in\"]\n  \"0_t\" -> \"0_new_cases_smoothed\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_t\" -> \"0_new_deaths_smoothed\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_t\" -> \"0_new_cases\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_t\" -> \"0_new_deaths\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_new_cases_smoothed\" -> \"0_cases_deaths_link_smoothed\" [value=\"[object Object]\",label=\"call -t_in\"]\n  \"0_t\" -> \"0_cases_deaths_link_smoothed\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_new_deaths_smoothed\" -> \"0_cases_deaths_link_smoothed\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_new_cases\" -> \"0_cases_deaths_link\" [value=\"[object Object]\",label=\"call -t_in\"]\n  \"0_t\" -> \"0_cases_deaths_link\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_new_deaths\" -> \"0_cases_deaths_link\" [value=\"[object Object]\",label=\"call -\"]\n  \"0_t_in\" -> \"0_t\" [value=\"[object Object]\",label=\"input +t_in\"]\n}\n"
+}
