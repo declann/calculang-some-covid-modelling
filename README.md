@@ -16,6 +16,8 @@ calculang bundles may be unnecessarily large without pruning data.
 
 ## todo
 
+Consider about separating data from model +/-s?
+
 I should probably be applying [Arquero](https://uwdata.github.io/arquero/) at least somewhere.
 
 I should be pruning, but ideally not manually.
