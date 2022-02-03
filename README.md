@@ -22,4 +22,6 @@ I should probably be applying [Arquero](https://uwdata.github.io/arquero/) at le
 
 I should be pruning, but ideally not manually.
 
+Bug RE recent data: Deaths are only entered weekly, but I should still get recent results. The reason I don't is because OWID smoothed deaths are populated with the real death figure entry. I can allow for this by calculating my own smoothed value, which is an ok idea anyways...
+
 Daily updates: Setup Flat action to run every day, also setup compilation action to run afterwards. (Currently no use to calculang models to just update the raw data, without reflecting in the bundles!) Also make the date bounds in scripts dynamic!
