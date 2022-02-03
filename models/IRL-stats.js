@@ -2721,6 +2721,8 @@ function addDays(dirtyDate, dirtyAmount) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testing", function() { return testing; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "data_date_extent", function() { return data_date_extent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed", function() { return new_cases_smoothed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_deaths_smoothed", function() { return new_deaths_smoothed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_cases", function() { return new_cases; });
@@ -2750,6 +2752,11 @@ const data = Object(d3_dsv__WEBPACK_IMPORTED_MODULE_1__[/* csvParse */ "a"])(raw
 
 });
 
+const testing = ({}) => 1; // this should work, and so should this:
+
+// const data_date_extent = ({}) => data[data.length - 1].date;   ====== error in calculang
+const data_date_extent = data[data.length - 1].date; // exposing this, because not knowing the bounds = possibility for runtime TypeErrors in data.find result lookup
+
 // note data has per million figures too, reproduction rate... lots of interesting stuff? weekly_icu_admissions_per_million? new_tests_smoothed_per_thousand? stringency_index? hospital_beds_per_thousand?
 
 // csv fns keyed by date:
@@ -2767,7 +2774,7 @@ data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]
 
 // some metrics modelling:
 
-// cases 14 days ago / deaths (smoothed values, = 7 day avgs?)
+// cases 14 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
 const cases_deaths_link_smoothed = ({ t_in }) =>
 new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -14) }) / new_deaths_smoothed({ t_in });
 

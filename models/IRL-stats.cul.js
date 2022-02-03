@@ -14,6 +14,11 @@ const data = csvParse(data_string, autoType).map((d) => {
   };
 });
 
+export const testing = () => 1; // this should work, and so should this:
+
+// const data_date_extent = ({}) => data[data.length - 1].date;   ====== error at runtime, so breaking all rules and making a constant (not a function !!!)
+export const data_date_extent = data[data.length - 1].date; // exposing this, because not knowing the bounds = possibility for runtime TypeErrors in data.find result lookup
+
 // note data has per million figures too, reproduction rate... lots of interesting stuff? weekly_icu_admissions_per_million? new_tests_smoothed_per_thousand? stringency_index? hospital_beds_per_thousand?
 
 // csv fns keyed by date:
@@ -31,7 +36,7 @@ export const new_deaths = () =>
 
 // some metrics modelling:
 
-// cases 14 days ago / deaths (smoothed values, = 7 day avgs?)
+// cases 14 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
 export const cases_deaths_link_smoothed = () =>
   new_cases_smoothed({ t_in: addDays(t(), -14) }) / new_deaths_smoothed();
 

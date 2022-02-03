@@ -1,14 +1,14 @@
 var model = require('./IRL-stats.js');
 var date_fns = require('date-fns');
 
-var t0 = new Date(2020, 4, 1);
+var t0 = new Date(2020, 2, 17);
 var t1;
 
 var out = [];
 
 for (
   t1 = t0;
-  date_fns.isBefore(t1, new Date(2022, 0, 12));
+  date_fns.isBefore(t1, model.data_date_extent);
   t1 = date_fns.addDays(t1, 1)
 ) {
   out.push({
