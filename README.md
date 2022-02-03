@@ -16,6 +16,8 @@ calculang bundles may be unnecessarily large without pruning data.
 
 ## todo
 
+calculang part of actions will fail until I make release and move to it!
+
 Consider about separating data from model +/-s?
 
 I should probably be applying [Arquero](https://uwdata.github.io/arquero/) at least somewhere.
