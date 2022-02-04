@@ -2755,7 +2755,7 @@ const data = Object(d3_dsv__WEBPACK_IMPORTED_MODULE_1__[/* csvParse */ "a"])(raw
 const testing = ({}) => 1; // this should work, and so should this:
 
 // const data_date_extent = ({}) => data[data.length - 1].date;   ====== error at runtime, so breaking all rules and making a constant (not a function !!!)
-const data_date_extent = data[data.length - 1].date; // exposing this, because not knowing the bounds = possibility for runtime TypeErrors in data.find result lookup
+const data_date_extent = ({}) => data[data.length - 1].date; // exposing this, because not knowing the bounds = possibility for runtime TypeErrors in data.find result lookup
 
 // note data has per million figures too, reproduction rate... lots of interesting stuff? weekly_icu_admissions_per_million? new_tests_smoothed_per_thousand? stringency_index? hospital_beds_per_thousand?
 

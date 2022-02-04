@@ -6,10 +6,10 @@ var t0, t1;
 
 t0 = new Date(2020, 4, 17)
 
-console.log(model.data_date_extent)
+console.log(model.data_date_extent({}))
 
 for (var t1 = t0;
-  date_fns.isBefore(t1, model.data_date_extent); // PROBLEM FOUND: this doesn't return undefined - there is an error thrown inside the model
+  date_fns.isBefore(t1, model.data_date_extent({}));
   t1 = date_fns.addDays(t1, 1)
 )
   console.log({
