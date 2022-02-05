@@ -25,3 +25,5 @@ Simplify the integration.
 I should probably be applying [Arquero](https://uwdata.github.io/arquero/) at least somewhere, or some other smarts.
 
 Consider about separating data from model +/-s?
+
+Probably stop committing/tracking `owid-covid-data-extract.csv`, the complete csv from OWID.
