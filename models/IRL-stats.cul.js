@@ -1,4 +1,4 @@
-// copying some old stuff; this data integration approach is a bit mental right now: clearly the top 80% of this file should note be in calculang.
+// copying some old stuff; this data integration approach is a bit mental right now: clearly the top 80% of this file should note be in calculang (everything above "metrics").
 // much of this can be neatly abstracted into a csv loader for calculang, but that might hide the Qs about performance/approach that I don't mind exposing now.
 
 import data_string from 'raw-loader!../public/owid-covid-data-IRL.csv';
