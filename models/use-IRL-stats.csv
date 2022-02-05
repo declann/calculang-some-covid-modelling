@@ -687,3 +687,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-01-31,Infinity,1150.347,13363,0,4764,7
 2022-02-01,Infinity,989.8162857142858,4208,0,4792.857,7
 2022-02-02,74.3804347826087,461.7232747470136,5940,92,4840.714,13.143
+2022-02-03,Infinity,Infinity,6061,null,4954.429,null
