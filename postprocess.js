@@ -7,6 +7,15 @@ const originalCSV = await readCSV(csvPath);
 
 var data = await readCSV(csvPath, {});
 
-data = data.filter((d) => d.iso_code == 'IRL');
+data = data
+  .filter((d) => d.iso_code == 'IRL')
+  .map(({ iso_code, date, new_cases_smoothed, new_cases, new_deaths_smoothed, new_deaths }) => ({
+    iso_code,
+    date,
+    new_cases_smoothed,
+    new_cases,
+    new_deaths_smoothed,
+    new_deaths
+  }));
 
 await writeCSV('./public/owid-covid-data-IRL.csv', data);
