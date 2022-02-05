@@ -1,4 +1,5 @@
-// copying some old stuff; this is a bit mental right now, but does it work?
+// copying some old stuff; this data integration approach is a bit mental right now: clearly the top 80% of this file should note be in calculang.
+// much of this can be neatly abstracted into a csv loader for calculang, but that might hide the Qs about performance/approach that I don't mind exposing now.
 
 import data_string from 'raw-loader!../public/owid-covid-data-IRL.csv';
 import { csvParse, autoType } from 'd3-dsv';
@@ -14,14 +15,10 @@ const data = csvParse(data_string, autoType).map((d) => {
   };
 });
 
-export const testing = () => 1; // this should work, and so should this:
+export const data_date_extent = () => data[data.length - 1].date; // important, because data is hidden to applications
 
-// const data_date_extent = ({}) => data[data.length - 1].date;   ====== error at runtime, so breaking all rules and making a constant (not a function !!!)
-export const data_date_extent = () => data[data.length - 1].date; // exposing this, because not knowing the bounds = possibility for runtime TypeErrors in data.find result lookup
-
-// note data has per million figures too, reproduction rate... lots of interesting stuff? weekly_icu_admissions_per_million? new_tests_smoothed_per_thousand? stringency_index? hospital_beds_per_thousand?
-
-// csv fns keyed by date:
+// "smoothed" = 7 day avg.
+// Ireland only sends data once per week, which is an interesting effect I am watching for recent data
 export const new_cases_smoothed = () =>
   data.find((d) => isSameDay(d.date, t())).new_cases_smoothed;
 
@@ -36,7 +33,7 @@ export const new_deaths = () =>
 
 // some metrics modelling:
 
-// cases 10 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
+// cases 10 days ago / deaths
 export const cases_deaths_link_smoothed = () =>
   new_cases_smoothed({ t_in: addDays(t(), -10) }) / new_deaths_smoothed();
 
@@ -44,6 +41,5 @@ export const cases_deaths_link = () =>
   new_cases({ t_in: addDays(t(), -14) }) / new_deaths();
 
 // explicit inputs:
-
 // t should be a JS date
 export const t = () => t_in;
