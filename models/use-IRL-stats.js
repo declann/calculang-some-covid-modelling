@@ -8,7 +8,7 @@ var out = [];
 
 for (
   t1 = t0;
-  date_fns.isBefore(t1, model.data_date_extent({}));
+  date_fns.isBefore(t1, model.data_date_extent({})) || date_fns.isEqual(t1, model.data_date_extent({}));
   t1 = date_fns.addDays(t1, 1)
 ) {
   out.push({
