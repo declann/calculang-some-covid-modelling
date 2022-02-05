@@ -36,9 +36,9 @@ export const new_deaths = () =>
 
 // some metrics modelling:
 
-// cases 14 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
+// cases 10 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
 export const cases_deaths_link_smoothed = () =>
-  new_cases_smoothed({ t_in: addDays(t(), -14) }) / new_deaths_smoothed();
+  new_cases_smoothed({ t_in: addDays(t(), -10) }) / new_deaths_smoothed();
 
 export const cases_deaths_link = () =>
   new_cases({ t_in: addDays(t(), -14) }) / new_deaths();

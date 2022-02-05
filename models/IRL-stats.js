@@ -2774,9 +2774,9 @@ data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]
 
 // some metrics modelling:
 
-// cases 14 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
+// cases 10 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
 const cases_deaths_link_smoothed = ({ t_in }) =>
-new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -14) }) / new_deaths_smoothed({ t_in });
+new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -10) }) / new_deaths_smoothed({ t_in });
 
 const cases_deaths_link = ({ t_in }) =>
 new_cases({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -14) }) / new_deaths({ t_in });
