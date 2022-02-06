@@ -35,11 +35,13 @@ export const new_deaths = () =>
 
 // cases 10 days ago / deaths (on 7 day avgs)
 export const cases_deaths_link_smoothed = () =>
-  new_cases_smoothed({ t_in: addDays(t(), -10) }) / new_deaths_smoothed();
+  new_cases_smoothed({ t_in: addDays(t(), -lag()) }) / new_deaths_smoothed();
 
 // same, but using daily numbers
 export const cases_deaths_link = () =>
-  new_cases({ t_in: addDays(t(), -10) }) / new_deaths();
+  new_cases({ t_in: addDays(t(), -lag()) }) / new_deaths();
+
+export const lag = () => 10; // lag a constant 10 here
 
 // explicit inputs:
 // t should be a JS date

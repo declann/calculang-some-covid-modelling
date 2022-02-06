@@ -35,11 +35,13 @@ data.find((d) => isSameDay(d.date, t({ t_in }))).new_deaths;
 
 // cases 10 days ago / deaths (on 7 day avgs)
 export const cases_deaths_link_smoothed = ({ t_in }) =>
-new_cases_smoothed({ t_in: addDays(t({ t_in }), -10) }) / new_deaths_smoothed({ t_in });
+new_cases_smoothed({ t_in: addDays(t({ t_in }), -lag({})) }) / new_deaths_smoothed({ t_in });
 
 // same, but using daily numbers
 export const cases_deaths_link = ({ t_in }) =>
-new_cases({ t_in: addDays(t({ t_in }), -10) }) / new_deaths({ t_in });
+new_cases({ t_in: addDays(t({ t_in }), -lag({})) }) / new_deaths({ t_in });
+
+export const lag = ({}) => 10; // lag a constant 10 here
 
 // explicit inputs:
 // t should be a JS date
