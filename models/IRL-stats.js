@@ -2721,7 +2721,6 @@ function addDays(dirtyDate, dirtyAmount) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testing", function() { return testing; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "data_date_extent", function() { return data_date_extent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed", function() { return new_cases_smoothed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_deaths_smoothed", function() { return new_deaths_smoothed; });
@@ -2736,7 +2735,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(13);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(36);
-// copying some old stuff; this is a bit mental right now, but does it work?
+// copying some old stuff; this data integration approach is a bit mental right now: clearly the top 80% of this file should note be in calculang (everything above "metrics").
+// much of this can be neatly abstracted into a csv loader for calculang, but that might hide the Qs about performance/approach that I don't mind exposing now.
 
 
 
@@ -2752,14 +2752,10 @@ const data = Object(d3_dsv__WEBPACK_IMPORTED_MODULE_1__[/* csvParse */ "a"])(raw
 
 });
 
-const testing = ({}) => 1; // this should work, and so should this:
+const data_date_extent = ({}) => data[data.length - 1].date; // important, because data is hidden to applications
 
-// const data_date_extent = ({}) => data[data.length - 1].date;   ====== error at runtime, so breaking all rules and making a constant (not a function !!!)
-const data_date_extent = ({}) => data[data.length - 1].date; // exposing this, because not knowing the bounds = possibility for runtime TypeErrors in data.find result lookup
-
-// note data has per million figures too, reproduction rate... lots of interesting stuff? weekly_icu_admissions_per_million? new_tests_smoothed_per_thousand? stringency_index? hospital_beds_per_thousand?
-
-// csv fns keyed by date:
+// "smoothed" = 7 day avg.
+// Ireland only sends data once per week, which is an interesting effect I am watching for recent data
 const new_cases_smoothed = ({ t_in }) =>
 data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(d.date, t({ t_in }))).new_cases_smoothed;
 
@@ -2774,15 +2770,15 @@ data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]
 
 // some metrics modelling:
 
-// cases 10 days ago / deaths (smoothed values, = 7 day avgs? yes confirmed in Excel, should confirm here!)
+// cases 10 days ago / deaths (on 7 day avgs)
 const cases_deaths_link_smoothed = ({ t_in }) =>
 new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -10) }) / new_deaths_smoothed({ t_in });
 
+// same, but using daily numbers
 const cases_deaths_link = ({ t_in }) =>
-new_cases({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -14) }) / new_deaths({ t_in });
+new_cases({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -10) }) / new_deaths({ t_in });
 
 // explicit inputs:
-
 // t should be a JS date
 const t = ({ t_in }) => t_in;
 
