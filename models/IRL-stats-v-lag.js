@@ -299,11 +299,11 @@ var formatters = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export data_date_extent */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return new_cases_smoothed; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return new_deaths_smoothed; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return new_cases; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return new_deaths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return data_date_extent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return new_cases_smoothed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return new_deaths_smoothed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return new_cases; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return new_deaths; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return cases_deaths_link_smoothed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cases_deaths_link; });
 /* unused harmony export lag_ */
@@ -542,17 +542,19 @@ function throwProtectedError(token, format, input) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lag", function() { return lag; });
 /* harmony import */ var _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["d"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["e"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["f"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["g"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["c"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["d"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["e"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["f"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cases_deaths_link_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["b"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cases_deaths_link", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["a"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "data_date_extent", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["c"]; });
 
 
 
