@@ -1,6 +1,6 @@
 # some covid modelling
 
-csv direct to vega: https://observablehq.com/@declann/covid19-cases-deaths-link@321
+csv direct to vega: https://observablehq.com/@declann/covid19-cases-deaths-link@320 *Note need to point csv to this branch!*
 
 Note bugs with 0/negative death intervals
 
