@@ -1,7 +1,7 @@
 var model = require('./IRL-stats.js');
 var date_fns = require('date-fns');
 
-var t0 = new Date(2020, 3, 17);
+var t0 = new Date(2020, 2, 17);
 var t_in;
 
 var out = [];
