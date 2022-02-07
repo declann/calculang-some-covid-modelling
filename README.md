@@ -1,5 +1,9 @@
 # some covid modelling
 
+csv direct to vega: https://observablehq.com/@declann/covid19-cases-deaths-link@321
+
+Note bugs with 0/negative death intervals
+
 ## data
 
 Data source is [Our World in Data](https://ourworldindata.org/).
