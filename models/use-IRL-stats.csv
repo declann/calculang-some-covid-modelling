@@ -692,3 +692,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-02-05,Infinity,Infinity,0,null,5181.286,null
 2022-02-06,Infinity,Infinity,0,null,5181.286,null
 2022-02-07,Infinity,Infinity,15168,null,5439.143,null
+2022-02-08,NaN,Infinity,3780,null,5378,null
