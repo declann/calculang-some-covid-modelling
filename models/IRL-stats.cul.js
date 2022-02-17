@@ -33,13 +33,18 @@ export const new_deaths = () =>
 
 // some metrics modelling:
 
+export const new_cases_smoothed_lag_allowance = () =>
+  new_cases_smoothed({ t_in: addDays(t(), -lag()) });
+
+export const new_cases_lag_allowance = () =>
+  new_cases({ t_in: addDays(t(), -lag()) });
+
 // cases 10 days ago / deaths (on 7 day avgs)
 export const cases_deaths_link_smoothed = () =>
-  new_cases_smoothed({ t_in: addDays(t(), -lag()) }) / new_deaths_smoothed();
+  new_cases_smoothed_lag_allowance() / new_deaths_smoothed();
 
 // same, but using daily numbers
-export const cases_deaths_link = () =>
-  new_cases({ t_in: addDays(t(), -lag()) }) / new_deaths();
+export const cases_deaths_link = () => new_cases_lag_allowance() / new_deaths();
 
 export const lag = () => 10; // lag a constant 10 here
 

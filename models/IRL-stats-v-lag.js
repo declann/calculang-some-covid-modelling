@@ -208,6 +208,83 @@ function toInteger(dirtyNumber) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return data_date_extent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return new_cases_smoothed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return new_deaths_smoothed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return new_cases; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return new_deaths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return new_cases_smoothed_lag_allowance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return new_cases_lag_allowance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return cases_deaths_link_smoothed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cases_deaths_link; });
+/* unused harmony export lag_ */
+/* unused harmony export t */
+/* harmony import */ var _IRL_stats_v_lag_cul_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var raw_loader_public_owid_covid_data_IRL_csv__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
+/* harmony import */ var d3_dsv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(39);
+/* harmony import */ var d3_dsv__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(38);
+ // copying some old stuff; this data integration approach is a bit mental right now: clearly the top 80% of this file should note be in calculang (everything above "metrics").
+// much of this can be neatly abstracted into a csv loader for calculang, but that might hide the Qs about performance/approach that I don't mind exposing now.
+
+
+
+
+
+const data = Object(d3_dsv__WEBPACK_IMPORTED_MODULE_2__[/* csvParse */ "a"])(raw_loader_public_owid_covid_data_IRL_csv__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], d3_dsv__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]).map((d) => {
+  return {
+    date: new Date(Object(date_fns__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(d.date, 'yyyy-MM-dd')),
+    new_cases_smoothed: d.new_cases_smoothed,
+    new_deaths_smoothed: d.new_deaths_smoothed,
+    new_cases: d.new_cases,
+    new_deaths: d.new_deaths };
+
+});
+
+const data_date_extent = ({}) => data[data.length - 1].date; // important, because data is hidden to applications
+
+// "smoothed" = 7 day avg.
+// Ireland only sends data once per week, which is an interesting effect I am watching for recent data
+const new_cases_smoothed = ({ t_in }) =>
+data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_cases_smoothed;
+
+const new_deaths_smoothed = ({ t_in }) =>
+data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_deaths_smoothed;
+
+const new_cases = ({ t_in }) =>
+data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_cases;
+
+const new_deaths = ({ t_in }) =>
+data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_deaths;
+
+// some metrics modelling:
+
+const new_cases_smoothed_lag_allowance = ({ t_in, lag_in }) =>
+new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(t({ t_in }), -Object(_IRL_stats_v_lag_cul_js__WEBPACK_IMPORTED_MODULE_0__["lag"])({ lag_in })) });
+
+const new_cases_lag_allowance = ({ t_in, lag_in }) =>
+new_cases({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(t({ t_in }), -Object(_IRL_stats_v_lag_cul_js__WEBPACK_IMPORTED_MODULE_0__["lag"])({ lag_in })) });
+
+// cases 10 days ago / deaths (on 7 day avgs)
+const cases_deaths_link_smoothed = ({ t_in, lag_in }) =>
+new_cases_smoothed_lag_allowance({ t_in, lag_in }) / new_deaths_smoothed({ t_in });
+
+// same, but using daily numbers
+const cases_deaths_link = ({ t_in, lag_in }) => new_cases_lag_allowance({ t_in, lag_in }) / new_deaths({ t_in });
+
+const lag_ = ({}) => 10; // lag a constant 10 here
+
+// explicit inputs:
+// t should be a JS date
+const t = ({ t_in }) => t_in;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var _addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 /*
@@ -293,76 +370,6 @@ var formatters = {
   }
 };
 /* harmony default export */ __webpack_exports__["a"] = (formatters);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return data_date_extent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return new_cases_smoothed; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return new_deaths_smoothed; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return new_cases; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return new_deaths; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return cases_deaths_link_smoothed; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return cases_deaths_link; });
-/* unused harmony export lag_ */
-/* unused harmony export t */
-/* harmony import */ var _IRL_stats_v_lag_cul_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
-/* harmony import */ var raw_loader_public_owid_covid_data_IRL_csv__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
-/* harmony import */ var d3_dsv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(39);
-/* harmony import */ var d3_dsv__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(38);
- // copying some old stuff; this data integration approach is a bit mental right now: clearly the top 80% of this file should note be in calculang (everything above "metrics").
-// much of this can be neatly abstracted into a csv loader for calculang, but that might hide the Qs about performance/approach that I don't mind exposing now.
-
-
-
-
-
-const data = Object(d3_dsv__WEBPACK_IMPORTED_MODULE_2__[/* csvParse */ "a"])(raw_loader_public_owid_covid_data_IRL_csv__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"], d3_dsv__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]).map((d) => {
-  return {
-    date: new Date(Object(date_fns__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(d.date, 'yyyy-MM-dd')),
-    new_cases_smoothed: d.new_cases_smoothed,
-    new_deaths_smoothed: d.new_deaths_smoothed,
-    new_cases: d.new_cases,
-    new_deaths: d.new_deaths };
-
-});
-
-const data_date_extent = ({}) => data[data.length - 1].date; // important, because data is hidden to applications
-
-// "smoothed" = 7 day avg.
-// Ireland only sends data once per week, which is an interesting effect I am watching for recent data
-const new_cases_smoothed = ({ t_in }) =>
-data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_cases_smoothed;
-
-const new_deaths_smoothed = ({ t_in }) =>
-data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_deaths_smoothed;
-
-const new_cases = ({ t_in }) =>
-data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_cases;
-
-const new_deaths = ({ t_in }) =>
-data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(d.date, t({ t_in }))).new_deaths;
-
-// some metrics modelling:
-
-// cases 10 days ago / deaths (on 7 day avgs)
-const cases_deaths_link_smoothed = ({ t_in, lag_in }) =>
-new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(t({ t_in }), -Object(_IRL_stats_v_lag_cul_js__WEBPACK_IMPORTED_MODULE_0__["lag"])({ lag_in })) }) / new_deaths_smoothed({ t_in });
-
-// same, but using daily numbers
-const cases_deaths_link = ({ t_in, lag_in }) =>
-new_cases({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"])(t({ t_in }), -Object(_IRL_stats_v_lag_cul_js__WEBPACK_IMPORTED_MODULE_0__["lag"])({ lag_in })) }) / new_deaths({ t_in });
-
-const lag_ = ({}) => 10; // lag a constant 10 here
-
-// explicit inputs:
-// t should be a JS date
-const t = ({ t_in }) => t_in;
 
 /***/ }),
 /* 6 */
@@ -541,20 +548,24 @@ function throwProtectedError(token, format, input) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lag", function() { return lag; });
-/* harmony import */ var _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["e"]; });
+/* harmony import */ var _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["f"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["g"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["i"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["d"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["f"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_deaths", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["h"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cases_deaths_link_smoothed", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["b"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cases_deaths_link", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["a"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "data_date_extent", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["c"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed_lag_allowance", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["g"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "new_cases_lag_allowance", function() { return _IRL_stats_cul_js_cul_scope_id_1_cul_parent_scope_id_0__WEBPACK_IMPORTED_MODULE_0__["e"]; });
 
 
 
@@ -1763,7 +1774,7 @@ var longFormatters = {
 /* harmony import */ var _lib_getUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(33);
 /* harmony import */ var _lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
 /* harmony import */ var _addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
-/* harmony import */ var _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
+/* harmony import */ var _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5);
 
 
 

@@ -2726,6 +2726,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_deaths_smoothed", function() { return new_deaths_smoothed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_cases", function() { return new_cases; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_deaths", function() { return new_deaths; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_cases_smoothed_lag_allowance", function() { return new_cases_smoothed_lag_allowance; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "new_cases_lag_allowance", function() { return new_cases_lag_allowance; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cases_deaths_link_smoothed", function() { return cases_deaths_link_smoothed; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cases_deaths_link", function() { return cases_deaths_link; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lag", function() { return lag; });
@@ -2771,13 +2773,18 @@ data.find((d) => Object(date_fns__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]
 
 // some metrics modelling:
 
+const new_cases_smoothed_lag_allowance = ({ t_in }) =>
+new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -lag({})) });
+
+const new_cases_lag_allowance = ({ t_in }) =>
+new_cases({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -lag({})) });
+
 // cases 10 days ago / deaths (on 7 day avgs)
 const cases_deaths_link_smoothed = ({ t_in }) =>
-new_cases_smoothed({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -lag({})) }) / new_deaths_smoothed({ t_in });
+new_cases_smoothed_lag_allowance({ t_in }) / new_deaths_smoothed({ t_in });
 
 // same, but using daily numbers
-const cases_deaths_link = ({ t_in }) =>
-new_cases({ t_in: Object(date_fns__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"])(t({ t_in }), -lag({})) }) / new_deaths({ t_in });
+const cases_deaths_link = ({ t_in }) => new_cases_lag_allowance({ t_in }) / new_deaths({ t_in });
 
 const lag = ({}) => 10; // lag a constant 10 here
 

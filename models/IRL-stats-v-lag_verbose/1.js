@@ -33,13 +33,18 @@ data.find((d) => isSameDay(d.date, t({ t_in }))).new_deaths;
 
 // some metrics modelling:
 
+export const new_cases_smoothed_lag_allowance = ({ t_in, lag_in }) =>
+new_cases_smoothed({ t_in: addDays(t({ t_in }), -lag({ lag_in })) });
+
+export const new_cases_lag_allowance = ({ t_in, lag_in }) =>
+new_cases({ t_in: addDays(t({ t_in }), -lag({ lag_in })) });
+
 // cases 10 days ago / deaths (on 7 day avgs)
 export const cases_deaths_link_smoothed = ({ t_in, lag_in }) =>
-new_cases_smoothed({ t_in: addDays(t({ t_in }), -lag({ lag_in })) }) / new_deaths_smoothed({ t_in });
+new_cases_smoothed_lag_allowance({ t_in, lag_in }) / new_deaths_smoothed({ t_in });
 
 // same, but using daily numbers
-export const cases_deaths_link = ({ t_in, lag_in }) =>
-new_cases({ t_in: addDays(t({ t_in }), -lag({ lag_in })) }) / new_deaths({ t_in });
+export const cases_deaths_link = ({ t_in, lag_in }) => new_cases_lag_allowance({ t_in, lag_in }) / new_deaths({ t_in });
 
 export const lag_ = ({}) => 10; // lag a constant 10 here
 
