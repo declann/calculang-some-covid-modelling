@@ -799,3 +799,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-05-23,Infinity,319.2272494451084,0,0,2340.571,5.857
 2022-05-24,NaN,319.2272494451084,0,0,2340.571,5.857
 2022-05-25,0,218.14420721036052,9797,60,1399.571,8.571
+2022-05-26,NaN,Infinity,null,null,null,null
