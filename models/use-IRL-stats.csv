@@ -813,3 +813,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-06-06,NaN,127.23372727272726,0,0,619.714,11
 2022-06-07,NaN,127.23372727272726,0,0,619.714,11
 2022-06-08,0,279.9142,4549,35,649.857,5
+2022-06-09,NaN,Infinity,null,null,null,null
