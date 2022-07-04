@@ -836,3 +836,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-06-29,0,258.816145590294,13229,30,1889.857,4.286
 2022-06-30,NaN,Infinity,null,null,null,null
 2022-07-01,NaN,Infinity,null,null,null,null
+2022-07-02,Infinity,Infinity,null,null,null,null
