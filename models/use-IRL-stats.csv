@@ -841,3 +841,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-07-04,NaN,303.3464769015399,0,0,1889.857,4.286
 2022-07-05,NaN,303.3464769015399,0,0,1889.857,4.286
 2022-07-06,0,245.95970488081727,14017,37,2002.429,5.286
+2022-07-07,NaN,Infinity,null,null,null,null
