@@ -871,3 +871,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-08-03,0,428.61131335760285,3439,25,491.286,3.571
 2022-08-04,NaN,Infinity,null,null,null,null
 2022-08-05,NaN,Infinity,null,null,null,null
+2022-08-06,Infinity,Infinity,null,null,null,null
