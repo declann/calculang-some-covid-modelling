@@ -906,3 +906,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-09-07,0,56.83314517949876,2078,31,296.857,4.429
 2022-09-08,NaN,Infinity,null,null,null,null
 2022-09-09,NaN,Infinity,null,null,null,null
+2022-09-10,Infinity,Infinity,null,null,null,null
