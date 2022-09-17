@@ -911,3 +911,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-09-12,NaN,52.188530142244296,0,0,296.857,4.429
 2022-09-13,NaN,52.188530142244296,0,0,296.857,4.429
 2022-09-14,0,52.188530142244296,1601,31,228.714,4.429
+2022-09-15,NaN,Infinity,null,null,null,null
