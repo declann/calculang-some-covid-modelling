@@ -925,3 +925,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-09-26,NaN,76.238,0,0,196.143,3
 2022-09-27,NaN,76.238,0,0,196.143,3
 2022-09-28,0,80.05390269513475,1645,20,235,2.857
+2022-09-29,NaN,Infinity,null,null,null,null
