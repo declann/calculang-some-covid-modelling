@@ -932,3 +932,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-10-03,NaN,68.6534826741337,0,0,235,2.857
 2022-10-04,NaN,68.6534826741337,0,0,235,2.857
 2022-10-05,0,80.75051461506794,2395,17,342.143,2.429
+2022-10-06,NaN,Infinity,null,null,null,null
