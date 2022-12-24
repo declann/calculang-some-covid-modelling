@@ -1009,3 +1009,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2022-12-19,NaN,47.72159396876683,0,0,329.714,5.571
 2022-12-20,NaN,47.72159396876683,0,0,329.714,5.571
 2022-12-21,0,80.90596469872186,2951,23,421.571,3.286
+2022-12-22,NaN,Infinity,null,null,null,null
