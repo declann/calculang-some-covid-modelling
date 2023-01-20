@@ -1030,9 +1030,10 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2023-01-09,NaN,0,0,0,882.714,6.571
 2023-01-10,NaN,0,0,0,882.714,6.571
 2023-01-11,0,0,3928,49,561.143,7
-2023-01-12,NaN,NaN,null,null,null,null
-2023-01-13,NaN,NaN,null,null,null,null
-2023-01-14,Infinity,Infinity,null,null,null,null
-2023-01-15,NaN,Infinity,null,null,null,null
-2023-01-16,NaN,Infinity,null,null,null,null
-2023-01-17,NaN,Infinity,null,null,null,null
+2023-01-12,NaN,0,0,0,561.143,7
+2023-01-13,NaN,0,0,0,561.143,7
+2023-01-14,Infinity,126.102,0,0,561.143,7
+2023-01-15,NaN,126.102,0,0,561.143,7
+2023-01-16,NaN,126.102,0,0,561.143,7
+2023-01-17,NaN,126.102,0,0,561.143,7
+2023-01-18,0,143.69428617939118,1572,43,224.571,6.143
