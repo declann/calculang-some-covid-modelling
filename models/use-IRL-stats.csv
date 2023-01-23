@@ -1039,3 +1039,4 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2023-01-18,0,143.69428617939118,1572,43,224.571,6.143
 2023-01-19,NaN,Infinity,null,null,null,null
 2023-01-20,NaN,Infinity,null,null,null,null
+2023-01-21,Infinity,Infinity,null,null,null,null
