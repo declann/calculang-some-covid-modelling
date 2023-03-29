@@ -1101,3 +1101,6 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2023-03-21,Infinity,Infinity,null,null,null,null
 2023-03-22,Infinity,Infinity,null,null,null,null
 2023-03-23,Infinity,Infinity,null,null,null,null
+2023-03-24,Infinity,Infinity,null,null,null,null
+2023-03-25,NaN,Infinity,null,null,null,null
+2023-03-26,Infinity,Infinity,null,null,null,null
