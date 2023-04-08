@@ -1108,9 +1108,10 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2023-03-28,Infinity,30.51957479906663,0,0,183.571,3.857
 2023-03-29,Infinity,34.14933886440238,11,0,185.143,3.857
 2023-03-30,0.15384615384615385,58.85083467959074,353,13,184.286,1.857
-2023-03-31,Infinity,Infinity,null,null,null,null
-2023-04-01,NaN,Infinity,null,null,null,null
-2023-04-02,Infinity,Infinity,null,null,null,null
-2023-04-03,Infinity,Infinity,null,null,null,null
-2023-04-04,Infinity,Infinity,null,null,null,null
-2023-04-05,Infinity,Infinity,null,null,null,null
+2023-03-31,Infinity,58.38933764135703,0,0,159.714,1.857
+2023-04-01,NaN,58.38933764135703,0,0,116.714,1.857
+2023-04-02,Infinity,67.77436725901993,0,0,96,1.857
+2023-04-03,Infinity,64.46634356488961,0,0,52,1.857
+2023-04-04,Infinity,81.6214324178783,0,0,52,1.857
+2023-04-05,Infinity,75.54442649434571,0,0,50.429,1.857
+2023-04-06,Infinity,Infinity,0,0,0,0
