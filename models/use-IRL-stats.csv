@@ -1128,3 +1128,7 @@ date,cases_deaths_link,cases_deaths_link_smoothed,new_cases,new_deaths,new_cases
 2023-04-17,Infinity,Infinity,0,null,2.429,null
 2023-04-18,Infinity,Infinity,0,null,0,null
 2023-04-19,Infinity,Infinity,0,null,0,null
+2023-04-20,Infinity,Infinity,null,null,null,null
+2023-04-21,Infinity,Infinity,null,null,null,null
+2023-04-22,NaN,Infinity,null,null,null,null
+2023-04-23,NaN,Infinity,null,null,null,null
