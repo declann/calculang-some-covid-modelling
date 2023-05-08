@@ -5,8 +5,6 @@ on:
     paths:
       - .github/workflows/flat.yml
       - postprocess.js
-  schedule:
-    - cron: 0 0 * * *
 jobs:
   scheduled:
     runs-on: ubuntu-latest
